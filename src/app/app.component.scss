@@ -1,8 +1,15 @@
 :host {
   mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+
     &.drop-hover {
       filter: invert(100%);
       border: 6px white dashed;
+    }
+
+    .stuck {
+      flex-grow: 1;
     }
   }
 

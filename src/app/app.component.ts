@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Funko } from './shared/model/funko.model';
+import { UtilsService } from './shared/service/utils.service';
 import { UploadComponent } from './upload/upload.component';
 
 @Component({
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   funkoList: Funko[];
   dragState = false;
 
-  constructor(private http: HttpClient, private dialog: MatDialog) {}
+  constructor(private http: HttpClient, private dialog: MatDialog, private utils: UtilsService) {}
 
   ngOnInit(): void {}
 
@@ -24,6 +25,10 @@ export class AppComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result);
     });
+  }
+
+  downloadJson() {
+    this.utils.saveAs(JSON.stringify(this.funkoList));
   }
 
   dropHandler(ev: DragEvent) {

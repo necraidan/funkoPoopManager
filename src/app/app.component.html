@@ -1,5 +1,13 @@
-<mat-toolbar [ngClass]="{'drop-hover': dragState}" (drop)="dropHandler($event)" (dragover)="dragOverHandler($event)" (dragleave)="dragState = false" (dragenter)="dragState = true">
+<mat-toolbar
+  [ngClass]="{ 'drop-hover': dragState }"
+  (drop)="dropHandler($event)"
+  (dragover)="dragOverHandler($event)"
+  (dragleave)="dragState = false"
+  (dragenter)="dragState = true"
+>
   <span>FunkoPoop Manager</span>
+  <button mat-raised-button *ngIf="funkoList && funkoList.length" (click)="downloadJson()">Download funko.json !</button>
+  <span *ngIf="!funkoList || !funkoList.length">Drop your funko.json here !</span>
 </mat-toolbar>
 <div class="main">
   <funko-card *ngFor="let funko of funkoList" [funko]="funko"></funko-card>
