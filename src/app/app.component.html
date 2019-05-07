@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar [ngClass]="{'drop-hover': dragState}" (drop)="dropHandler($event)" (dragover)="dragOverHandler($event)" (dragleave)="dragState = false" (dragenter)="dragState = true">
   <span>FunkoPoop Manager</span>
 </mat-toolbar>
 <div class="main">

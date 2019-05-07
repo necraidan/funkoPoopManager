@@ -1,4 +1,11 @@
 :host {
+  mat-toolbar {
+    &.drop-hover {
+      filter: invert(100%);
+      border: 6px white dashed;
+    }
+  }
+
   .main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;

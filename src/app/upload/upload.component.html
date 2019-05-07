@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Upload your funko.json</h1>
+<div mat-dialog-content>
+  <!-- <mat-form-field>
+    <input matInput placeholder="Input" />
+  </mat-form-field> -->
+  <form [formGroup]="uploadForm">
+    <input type="file" id="userFile" (change)="onSelectFile($event)" />
+    <input type="button" (click)="sendFile()" value="Envoyer" />
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Done</button>
+</div>
