@@ -16,7 +16,11 @@ export class AppComponent implements OnInit {
 
   constructor(private http: HttpClient, private dialog: MatDialog, private utils: UtilsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.http.get('assets/funko.json').subscribe((res: Funko[]) => {
+      this.funkoList = res;
+    });
+  }
 
   openUploadForm(): void {
     const dialogRef = this.dialog.open(UploadComponent, {});
@@ -29,6 +33,16 @@ export class AppComponent implements OnInit {
 
   downloadJson() {
     this.utils.saveAs(JSON.stringify(this.funkoList));
+  }
+
+  addFunko() {
+    // https://serratus.github.io/quaggaJS/
+    const dialogRef = this.dialog.open(UploadComponent, {});
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
   }
 
   dropHandler(ev: DragEvent) {
