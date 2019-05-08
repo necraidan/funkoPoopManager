@@ -1,10 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AddModifyComponent } from './add-modify/add-modify.component';
 import { Funko } from './shared/model/funko.model';
 import { UtilsService } from './shared/service/utils.service';
-import { UploadComponent } from './upload/upload.component';
 
+/**
+ * TODO:
+ * - Search
+ * - Multiple Add
+ * - Picture and other fields
+ */
 @Component({
   selector: 'funko-root',
   templateUrl: './app.component.html',
@@ -23,11 +29,12 @@ export class AppComponent implements OnInit {
   }
 
   openUploadForm(): void {
-    const dialogRef = this.dialog.open(UploadComponent, {});
+    const dialogRef = this.dialog.open(AddModifyComponent, {
+      data: { funko: {} }
+    });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+      this.funkoList.push(result);
     });
   }
 
@@ -37,11 +44,12 @@ export class AppComponent implements OnInit {
 
   addFunko() {
     // https://serratus.github.io/quaggaJS/
-    const dialogRef = this.dialog.open(UploadComponent, {});
+    const dialogRef = this.dialog.open(AddModifyComponent, {
+      data: { funko: {} }
+    });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+      this.funkoList.push(result);
     });
   }
 
