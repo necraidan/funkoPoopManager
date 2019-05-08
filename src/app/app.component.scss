@@ -3,6 +3,10 @@
     display: flex;
     justify-content: space-between;
 
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
     &.drop-hover {
       filter: invert(100%);
       border: 6px white dashed;
@@ -16,6 +20,7 @@
   .main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5vw;
   }
 }
 

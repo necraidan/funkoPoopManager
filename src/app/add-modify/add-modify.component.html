@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Modify {{ funko?.name }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="modifyForm">
+    <mat-form-field>
+      <input matInput placeholder="name" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="number" formControlName="number" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="collection" formControlName="collection" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="category" formControlName="category" />
+    </mat-form-field>
+    <mat-form-field class="full-row">
+      <input matInput placeholder="picture" formControlName="picture" />
+    </mat-form-field>
+    <!-- <mat-form-field>
+      <input matInput placeholder="description" formControlName="description" />
+    </mat-form-field> -->
+    <mat-form-field>
+      <mat-label>Rarity</mat-label>
+      <mat-select formControlName="rarity" multiple>
+        <mat-option *ngFor="let rarity of rarities" [value]="rarity">{{ rarity }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-slide-toggle formControlName="owned" style="align-self: center;">
+      Owned
+    </mat-slide-toggle>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="close()" cdkFocusInitial>Done</button>
+</div>
