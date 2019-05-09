@@ -6,13 +6,23 @@
   (dragenter)="dragState = true"
 >
   <span>FunkoPoop Manager</span>
-  <span *ngIf="funkoList && funkoList.length">
+  <form *ngIf="funkoListFiltered" class="search-form" [formGroup]="searchForm">
+    <mat-form-field class="input-full-width" floatLabel="never">
+      <input matInput placeholder="Search" formControlName="query" />
+      <button mat-button *ngIf="isQuery" matSuffix mat-icon-button aria-label="Clear" (click)="clearInput()">
+        <i class="material-icons">
+          close
+        </i>
+      </button>
+    </mat-form-field>
+  </form>
+  <span *ngIf="funkoListFiltered">
     <button mat-raised-button (click)="addFunko()" color="primary">Add funko</button>&nbsp;
     <button mat-raised-button (click)="downloadJson()">Download funko.json !</button>
   </span>
 
-  <span *ngIf="!funkoList || !funkoList.length">Drop your funko.json here !</span>
+  <span *ngIf="!funkoListFiltered">Drop your funko.json here !</span>
 </mat-toolbar>
 <div class="main">
-  <funko-card *ngFor="let funko of funkoList" [funko]="funko"></funko-card>
+  <funko-card *ngFor="let funko of funkoListFiltered" [funko]="funko"></funko-card>
 </div>
