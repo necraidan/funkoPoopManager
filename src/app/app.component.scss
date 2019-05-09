@@ -20,7 +20,9 @@
   .main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 5vw;
+    grid-gap: 2em;
+    justify-items: center;
+    align-items: center;
   }
 }
 

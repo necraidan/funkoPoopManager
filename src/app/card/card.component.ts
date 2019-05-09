@@ -22,7 +22,8 @@ export class CardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      Object.assign(this.funko, result);
+      // tslint:disable-next-line: no-unused-expression
+      result && Object.assign(this.funko, result);
     });
   }
 }

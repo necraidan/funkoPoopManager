@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Funko } from 'src/app/shared/model/funko.model';
 import { Rarity } from 'src/app/shared/model/rarity.enum';
+import { Exclusivity } from '../shared/model/exclusivity.enum';
 
 @Component({
   selector: 'funko-add-modify',
@@ -14,9 +15,10 @@ export class AddModifyComponent implements OnInit {
   modifyForm: FormGroup;
 
   rarities: string[];
+  exclusivities: string[];
   constructor(public dialogRef: MatDialogRef<AddModifyComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder) {
     this.rarities = Object.values(Rarity);
-    console.log(this.rarities);
+    this.exclusivities = Object.values(Exclusivity);
   }
 
   ngOnInit() {

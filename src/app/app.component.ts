@@ -49,17 +49,15 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.funkoList.push(result);
+      // tslint:disable-next-line: no-unused-expression
+      result && this.funkoList.unshift(result);
     });
   }
 
   dropHandler(ev: DragEvent) {
-    console.log(ev);
-
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
 
-    console.log(ev.dataTransfer.items[0].getAsFile());
 
     const fileReader = new FileReader();
     fileReader.onload = e => {
