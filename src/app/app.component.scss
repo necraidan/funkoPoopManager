@@ -15,6 +15,15 @@
     .stuck {
       flex-grow: 1;
     }
+
+    form {
+      flex-basis: 100%;
+
+      mat-form-field {
+        display: block;
+        margin: 0 20px;
+      }
+    }
   }
 
   .main {
