@@ -5,7 +5,9 @@
   (dragleave)="dragState = false"
   (dragenter)="dragState = true"
 >
-  <span>FunkoPoop Manager</span>
+  <span>
+    FunkoPoop Manager <span>{{ funkoList.length }}</span>
+  </span>
   <form *ngIf="funkoListFiltered" class="search-form" [formGroup]="searchForm">
     <mat-form-field class="input-full-width" floatLabel="never">
       <input matInput placeholder="Search" formControlName="query" />
