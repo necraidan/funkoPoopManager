@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Funko } from 'src/app/shared/model/funko.model';
 import { Rarity } from 'src/app/shared/model/rarity.enum';
@@ -44,8 +44,12 @@ export class AddModifyComponent implements OnInit {
       description: [this.funko.description],
       owned: [this.funko.owned],
       rarity: [this.funko.rarity],
+      exclusivity: [this.funko.exclusivity],
       toBase64: [false]
     });
+  }
+  get owned(): FormControl {
+    return this.modifyForm.get('owned') as FormControl;
   }
 
   close() {

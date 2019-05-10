@@ -15,9 +15,9 @@
     </mat-form-field>
     <mat-form-field class="full-row">
       <input matInput placeholder="picture" formControlName="picture" />
-      <mat-slide-toggle formControlName="toBase64">
+      <!-- <mat-slide-toggle formControlName="toBase64">
         ToBase64
-      </mat-slide-toggle>
+      </mat-slide-toggle> -->
     </mat-form-field>
     <!-- <mat-form-field>
       <input matInput placeholder="description" formControlName="description" />
@@ -28,8 +28,14 @@
         <mat-option *ngFor="let rarity of rarities" [value]="rarity">{{ rarity }}</mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Exclusivity</mat-label>
+      <mat-select formControlName="exclusivity" multiple>
+        <mat-option *ngFor="let exclusivity of exclusivities" [value]="exclusivity">{{ exclusivity }}</mat-option>
+      </mat-select>
+    </mat-form-field>
     <mat-slide-toggle formControlName="owned" style="align-self: center;">
-      Owned
+      {{ owned.value ? 'Owned' : 'Wanted' }}
     </mat-slide-toggle>
   </form>
 </div>

@@ -9,7 +9,10 @@
   <!-- <img mat-card-image [src]="funko.picture" alt="" /> -->
   <mat-card-content>
     <mat-chip-list>
-      <mat-chip *ngFor="let rarity of funko.rarity">{{ rarity }}</mat-chip>
+      <mat-chip *ngFor="let rarity of funko.rarity" color="accent" selected>{{ rarity }}</mat-chip>
+    </mat-chip-list>
+    <mat-chip-list>
+      <mat-chip *ngFor="let exclusivity of funko.exclusivity" color="warn" selected>{{ exclusivity }}</mat-chip>
     </mat-chip-list>
   </mat-card-content>
   <mat-card-actions>

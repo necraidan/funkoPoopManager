@@ -17,9 +17,7 @@ export class CardComponent implements OnInit {
   ngOnInit() {}
 
   modify() {
-    const dialogRef = this.dialog.open(AddModifyComponent, {
-      data: { funko: this.funko }
-    });
+    const dialogRef = this.dialog.open(AddModifyComponent, { minWidth: '60vw', data: { funko: this.funko } });
 
     dialogRef.afterClosed().subscribe(result => {
       // tslint:disable-next-line: no-unused-expression
