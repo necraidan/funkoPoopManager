@@ -63,6 +63,10 @@ export class AppComponent implements OnInit {
     this.utils.saveAs(JSON.stringify(this.funkoList));
   }
 
+  visualize() {
+    // visualisation of funko.json
+  }
+
   addFunko() {
     // https://serratus.github.io/quaggaJS/
     const dialogRef = this.dialog.open(AddModifyComponent, {

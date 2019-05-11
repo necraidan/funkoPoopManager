@@ -24,4 +24,8 @@ export class CardComponent implements OnInit {
       result && Object.assign(this.funko, result);
     });
   }
+
+  delete() {
+    // service with observable
+  }
 }

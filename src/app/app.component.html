@@ -6,7 +6,7 @@
   (dragenter)="dragState = true"
 >
   <span>
-    FunkoPoop Manager <span>{{ funkoList.length }}</span>
+    FunkoPoop Manager <span>{{ funkoList?.length }}</span>
   </span>
   <form *ngIf="funkoListFiltered" class="search-form" [formGroup]="searchForm">
     <mat-form-field class="input-full-width" floatLabel="never">
@@ -20,7 +20,8 @@
   </form>
   <span *ngIf="funkoListFiltered">
     <button mat-raised-button (click)="addFunko()" color="primary">Add funko</button>&nbsp;
-    <button mat-raised-button (click)="downloadJson()">Download funko.json !</button>
+    <button mat-raised-button (click)="downloadJson()">Download funko.json !</button>&nbsp;
+    <button mat-raised-button (click)="visualize()" color="accent" [innerHTML]="'{}'"></button>
   </span>
 
   <span *ngIf="!funkoListFiltered">Drop your funko.json here !</span>
