@@ -8,10 +8,16 @@
       <input matInput placeholder="number" formControlName="number" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="collection" formControlName="collection" />
+      <mat-label>Collection</mat-label>
+      <mat-select formControlName="collection">
+        <mat-option *ngFor="let collection of collections" [value]="collection">{{ collection }}</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="category" formControlName="category" />
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field class="full-row">
       <input matInput placeholder="picture" formControlName="picture" />

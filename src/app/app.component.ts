@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AddModifyComponent } from './add-modify/add-modify.component';
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
 
   isQuery: boolean;
 
-  constructor(private http: HttpClient, private dialog: MatDialog, private utils: UtilsService) {}
+  constructor(private http: HttpClient, private dialog: MatDialog, private utils: UtilsService, private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.http.get('assets/funko.json').subscribe((res: Funko[]) => {
@@ -74,8 +74,10 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // tslint:disable-next-line: no-unused-expression
-      result && this.funkoList.unshift(result);
+      if (result) {
+        this.funkoList.unshift(result);
+        this.clearInput();
+      }
     });
   }
 
