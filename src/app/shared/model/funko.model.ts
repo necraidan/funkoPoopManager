@@ -9,9 +9,9 @@ export interface Funko {
   number: string;
   picture: string[];
   description: string;
-  tag: string[];
+  tags: string[];
   owned?: boolean;
   wanted?: boolean; // deprecated
-  rarity?: Rarity[];
-  exclusivity?: Exclusivity[];
+  rarities?: Rarity[];
+  exclusivities?: Exclusivity[];
 }

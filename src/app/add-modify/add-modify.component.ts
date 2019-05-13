@@ -7,6 +7,7 @@ import { Rarity } from 'src/app/shared/model/rarity.enum';
 import { Category } from '../shared/model/category.enum';
 import { Collection } from '../shared/model/collection.enum';
 import { Exclusivity } from '../shared/model/exclusivity.enum';
+import { Tag } from '../shared/model/tag.enum';
 
 @Component({
   selector: 'funko-add-modify',
@@ -21,6 +22,7 @@ export class AddModifyComponent implements OnInit {
   exclusivities: Exclusivity[] = Object.values(Exclusivity);
   collections: Collection[] = Object.values(Collection);
   categories: Category[] = Object.values(Category);
+  tags: Tag[] = Object.values(Tag);
 
   constructor(
     public dialogRef: MatDialogRef<AddModifyComponent>,
@@ -45,9 +47,10 @@ export class AddModifyComponent implements OnInit {
       picture: [this.funko.picture],
       description: [this.funko.description],
       owned: [this.funko.owned],
-      rarity: [this.funko.rarity],
-      exclusivity: [this.funko.exclusivity],
-      toBase64: [false]
+      rarities: [this.funko.rarities],
+      exclusivities: [this.funko.exclusivities],
+      tags: [this.funko.tags]
+      // toBase64: [false]
     });
   }
   get owned(): FormControl {
@@ -55,13 +58,13 @@ export class AddModifyComponent implements OnInit {
   }
 
   close() {
-    if (this.modifyForm.get('toBase64').value) {
-      // let reader = new FileReader();
-      // reader.onloadend = () => {
-      //   console.log(reader.result);
-      // };
-      // reader.readAsDataURL(this.modifyForm.get('picture').value);
-    }
+    // if (this.modifyForm.get('toBase64').value) {
+    //   // let reader = new FileReader();
+    //   // reader.onloadend = () => {
+    //   //   console.log(reader.result);
+    //   // };
+    //   // reader.readAsDataURL(this.modifyForm.get('picture').value);
+    // }
 
     this.dialogRef.close({ ...this.modifyForm.value });
   }

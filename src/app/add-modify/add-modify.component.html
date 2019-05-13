@@ -29,15 +29,21 @@
       <input matInput placeholder="description" formControlName="description" />
     </mat-form-field> -->
     <mat-form-field>
-      <mat-label>Rarity</mat-label>
-      <mat-select formControlName="rarity" multiple>
+      <mat-label>Rarities</mat-label>
+      <mat-select formControlName="rarities" multiple>
         <mat-option *ngFor="let rarity of rarities" [value]="rarity">{{ rarity }}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Exclusivity</mat-label>
-      <mat-select formControlName="exclusivity" multiple>
+      <mat-label>Exclusivities</mat-label>
+      <mat-select formControlName="exclusivities" multiple>
         <mat-option *ngFor="let exclusivity of exclusivities" [value]="exclusivity">{{ exclusivity }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Tags</mat-label>
+      <mat-select formControlName="tags" multiple>
+        <mat-option *ngFor="let tag of tags" [value]="tag">{{ tag }}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-slide-toggle formControlName="owned" style="align-self: center;">
