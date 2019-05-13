@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'formatTags'
 })
 export class FormatTagsPipe implements PipeTransform {
-  transform(tags: string[] = []): string {
-    return tags.join(', ');
+  transform(tags: string[]): string {
+    return tags ? tags.join(', ') : '';
   }
 }

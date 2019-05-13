@@ -46,9 +46,17 @@
         <mat-option *ngFor="let tag of tags" [value]="tag">{{ tag }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-slide-toggle formControlName="owned" style="align-self: center;">
-      {{ owned.value ? 'Owned' : 'Wanted' }}
-    </mat-slide-toggle>
+    <div class="owned-wanted-area">
+      <mat-slide-toggle formControlName="owned">
+        Owned
+      </mat-slide-toggle>
+      <mat-checkbox formControlName="wantedNo">
+        Wanted by No
+      </mat-checkbox>
+      <mat-checkbox formControlName="wantedBe">
+        Wanted by Be
+      </mat-checkbox>
+    </div>
   </form>
 </div>
 <div mat-dialog-actions>

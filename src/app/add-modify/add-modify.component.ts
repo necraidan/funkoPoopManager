@@ -33,6 +33,7 @@ export class AddModifyComponent implements OnInit {
 
   ngOnInit() {
     this.funko = this.data.funko;
+    console.log(this.funko);
 
     this.modifyForm = this.formBuilder.group({
       name: [this.funko.name],
@@ -47,14 +48,34 @@ export class AddModifyComponent implements OnInit {
       picture: [this.funko.picture],
       description: [this.funko.description],
       owned: [this.funko.owned],
+      wantedNo: [this.funko.wantedNo],
+      wantedBe: [this.funko.wantedBe],
       rarities: [this.funko.rarities],
       exclusivities: [this.funko.exclusivities],
       tags: [this.funko.tags]
       // toBase64: [false]
     });
+
+    this.modifyForm.get('owned').valueChanges.subscribe((owned: boolean) => {
+      if (owned) {
+        this.modifyForm.patchValue({
+          wantedNo: false,
+          wantedBe: false
+        });
+      }
+    });
   }
+
   get owned(): FormControl {
     return this.modifyForm.get('owned') as FormControl;
+  }
+
+  get wantedNo(): FormControl {
+    return this.modifyForm.get('wantedNo') as FormControl;
+  }
+
+  get wantedBe(): FormControl {
+    return this.modifyForm.get('wantedBe') as FormControl;
   }
 
   close() {

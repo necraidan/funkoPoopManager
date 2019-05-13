@@ -12,6 +12,8 @@ export interface Funko {
   tags: string[];
   owned?: boolean;
   wanted?: boolean; // deprecated
+  wantedNo?: boolean;
+  wantedBe?: boolean;
   rarities?: Rarity[];
   exclusivities?: Exclusivity[];
 }

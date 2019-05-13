@@ -12,5 +12,7 @@ export enum Exclusivity {
   NYCC_2017 = 'NYCC 2017',
   NYCC_2018 = 'NYCC 2018',
   NYCC_2019 = 'NYCC 2019',
-  MONTREAL = 'Montréal'
+  MONTREAL = 'Montréal',
+  FALL_CONVENTION_EXCLUSIVE_2018 = 'Fall Convention Exclusive 2018',
+  LEGION_COLLECTOR = 'Legion Collector'
 }

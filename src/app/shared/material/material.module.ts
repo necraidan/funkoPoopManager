@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,7 +22,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatInputModule,
     MatChipsModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   exports: [
     MatToolbarModule,
@@ -32,7 +34,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatInputModule,
     MatChipsModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule {}
