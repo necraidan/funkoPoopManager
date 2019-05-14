@@ -19,11 +19,14 @@
         <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field class="full-row">
+    <mat-form-field>
       <input matInput placeholder="picture" formControlName="picture" />
       <!-- <mat-slide-toggle formControlName="toBase64">
         ToBase64
       </mat-slide-toggle> -->
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="barcode" formControlName="barcode" />
     </mat-form-field>
     <!-- <mat-form-field>
       <input matInput placeholder="description" formControlName="description" />

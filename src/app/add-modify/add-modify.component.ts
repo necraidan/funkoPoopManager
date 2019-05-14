@@ -52,7 +52,8 @@ export class AddModifyComponent implements OnInit {
       wantedBe: [this.funko.wantedBe],
       rarities: [this.funko.rarities],
       exclusivities: [this.funko.exclusivities],
-      tags: [this.funko.tags]
+      tags: [this.funko.tags],
+      barcode: [this.funko.barcode]
       // toBase64: [false]
     });
 

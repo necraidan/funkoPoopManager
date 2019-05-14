@@ -124,7 +124,9 @@ export class AppComponent implements OnInit {
           funko.category.toLowerCase().includes(val) ||
           funko.collection.toLowerCase().includes(val) ||
           funko.number.toLowerCase().includes(val) ||
-          (funko.rarities && funko.rarities.length && funko.rarities.includes(val))
+          (funko.tags && funko.tags.length && funko.tags.includes(val)) ||
+          (funko.rarities && funko.rarities.length && funko.rarities.includes(val)) ||
+          (funko.exclusivities && funko.exclusivities.length && funko.exclusivities.includes(val))
         );
       });
   }
