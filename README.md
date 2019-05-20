@@ -1,8 +1,8 @@
 # FunkoPoopManager
 
+This is the manager for https://github.com/necraidan/funkoPoop
+
 # TODO
 
-- Edit
-- Add
 - Multi-Edit
-- Barcode scanner
+- Delete
