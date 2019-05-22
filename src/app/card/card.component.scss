@@ -3,5 +3,17 @@
 
   mat-card {
     display: grid;
+
+    &.be {
+      background-color: #ff0800;
+    }
+
+    &.no {
+      background-color: #1e5ed4;
+    }
+
+    &.nobe {
+      background-color: #6f0061;
+    }
   }
 }

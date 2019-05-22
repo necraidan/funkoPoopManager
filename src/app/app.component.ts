@@ -34,10 +34,10 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient, private dialog: MatDialog, private utils: UtilsService, private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.http.get('assets/funko.json').subscribe((res: Funko[]) => {
+    /*     this.http.get('assets/funko.json').subscribe((res: Funko[]) => {
       this.funkoList = res;
       this.funkoListFiltered = [...this.funkoList];
-    });
+    }); */
 
     this.searchForm.valueChanges.subscribe(values => {
       this.isQuery = !!values.query;
@@ -67,11 +67,8 @@ export class AppComponent implements OnInit {
     // visualisation of funko.json
   }
 
-  addFunko() {
-    // https://serratus.github.io/quaggaJS/
-    const dialogRef = this.dialog.open(AddModifyComponent, {
-      data: { funko: {} }
-    });
+  addFunko(funko: Funko = {} as Funko) {
+    const dialogRef = this.dialog.open(AddModifyComponent, { minWidth: '60vw', data: { funko } });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -79,6 +76,14 @@ export class AppComponent implements OnInit {
         this.clearInput();
       }
     });
+  }
+
+  delete(funko: Funko) {
+    const index = this.funkoList.indexOf(funko);
+    if (index > -1) {
+      this.funkoList.splice(index, 1);
+      this.clearInput();
+    }
   }
 
   dropHandler(ev: DragEvent) {

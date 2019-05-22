@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [ngClass]="{ be: funko.wantedBe && !funko.wantedNo, no: !funko.wantedBe && funko.wantedNo, nobe: funko.wantedBe && funko.wantedNo }">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image">
       <mat-card-subtitle>{{ funko.number }}</mat-card-subtitle>
@@ -19,8 +19,20 @@
     </mat-chip-list>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="modify()" color="primary">Modifier</button>
-
-    <button mat-raised-button (click)="delete()" color="accent">Supprimer</button>
+    <button mat-raised-button (click)="modify()" color="primary">
+      <i class="material-icons">
+        create
+      </i>
+    </button>
+    <button mat-raised-button (click)="copy()">
+      <i class="material-icons">
+        file_copy
+      </i>
+    </button>
+    <button mat-raised-button (click)="askDelete()" color="accent">
+      <i class="material-icons">
+        delete
+      </i>
+    </button>
   </mat-card-actions>
 </mat-card>

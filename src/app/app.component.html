@@ -27,5 +27,5 @@
   <span *ngIf="!funkoListFiltered">Drop your funko.json here !</span>
 </mat-toolbar>
 <div class="main">
-  <funko-card *ngFor="let funko of funkoListFiltered" [funko]="funko"></funko-card>
+  <funko-card *ngFor="let funko of funkoListFiltered" [funko]="funko" (duplicate)="addFunko($event)" (delete)="delete($event)"></funko-card>
 </div>
