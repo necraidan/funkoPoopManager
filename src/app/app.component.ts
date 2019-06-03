@@ -70,8 +70,9 @@ export class AppComponent implements OnInit {
   addFunko(funko: Funko = {} as Funko) {
     const dialogRef = this.dialog.open(AddModifyComponent, { minWidth: '60vw', data: { funko } });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: Funko) => {
       if (result) {
+        result.guid = this.utils.getGuid();
         this.funkoList.unshift(result);
         this.clearInput();
       }
@@ -93,6 +94,9 @@ export class AppComponent implements OnInit {
     const fileReader = new FileReader();
     fileReader.onload = e => {
       this.funkoList = JSON.parse(fileReader.result as string);
+      this.funkoList.forEach((funko: Funko) => {
+        funko.guid = this.utils.getGuid();
+      });
       this.funkoListFiltered = [...this.funkoList];
     };
 
